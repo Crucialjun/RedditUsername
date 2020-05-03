@@ -33,6 +33,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    //LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.1"
 
     testImplementation 'junit:junit:4.12'
 

@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import androidx.lifecycle.ViewModelProviders
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +23,8 @@ class DetailsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private var sharedViewModel : SharedViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +60,22 @@ class DetailsFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
+
+        val name = view.findViewById<View>(R.id.editTextName) as EditText
+        val age = view.findViewById<View>(R.id.editTextAge) as EditText
+        val username = view.findViewById<View>(R.id.editTextUsername) as EditText
+        val submitButton= view.findViewById<View>(R.id.buttonSubmit) as Button
+
+        submitButton.setOnClickListener{
+            sharedViewModel!!.setName(name.text.toString())
+            sharedViewModel!!.setAge(age.text.toString())
+            sharedViewModel!!.setUserName(username.text.toString())
+        }
     }
 }

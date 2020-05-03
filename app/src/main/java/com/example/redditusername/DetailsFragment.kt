@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 
 // TODO: Rename parameter arguments, choose names that match
@@ -76,6 +77,13 @@ class DetailsFragment : Fragment() {
             sharedViewModel!!.setName(name.text.toString())
             sharedViewModel!!.setAge(age.text.toString())
             sharedViewModel!!.setUserName(username.text.toString())
+
+            val displayFragment =DisplayFragment()
+            val fragmentTransaction = fragmentManager!!.beginTransaction()
+            fragmentTransaction.replace(R.id.fragmentsHolder,displayFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+
         }
     }
 }

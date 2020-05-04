@@ -18,12 +18,12 @@
             android:src="@drawable/welcome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/welcome_image" />
 
 
-        <EditText
-            android:inputType="textPersonName"
-            android:id="@+id/editTextName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInputLayoutName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -31,16 +31,63 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:hint="Enter Your Name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView">
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            >
 
-        </EditText>
+            <EditText
+                android:inputType="textCapWords"
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:hint="@string/enter_your_name"
+                android:importantForAutofill="no">
 
-        <EditText
-            android:inputType="number"
-            android:id="@+id/editTextAge"
+            </EditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+       <com.google.android.material.textfield.TextInputLayout
+           android:id="@+id/txtInputAge"
+           android:layout_marginStart="16dp"
+           android:layout_marginLeft="16dp"
+           android:layout_marginTop="16dp"
+           android:layout_marginEnd="16dp"
+           android:layout_marginRight="16dp"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.0"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/txtInputLayoutName"
+           >
+           <EditText
+               android:inputType="number"
+               android:id="@+id/editTextAge"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="16dp"
+               android:layout_marginLeft="16dp"
+               android:layout_marginTop="16dp"
+               android:layout_marginEnd="16dp"
+               android:layout_marginRight="16dp"
+               android:hint="@string/enter_your_age"
+               android:importantForAutofill="no">
+
+           </EditText>
+
+
+       </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtInoutLayoutUserName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -48,31 +95,30 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:hint="Enter Your Age"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextName">
+            app:layout_constraintTop_toBottomOf="@+id/txtInputAge"
+            >
 
-        </EditText>
+            <EditText
+                android:inputType="text"
+                android:id="@+id/editTextUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:hint="@string/enter_your_reddit_username"
+                android:importantForAutofill="no">
 
-        <EditText
-            android:inputType="text"
-            android:id="@+id/editTextUsername"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:hint="Enter Your Reddit Username"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextAge">
+            </EditText>
 
-        </EditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <Button
             android:id="@+id/buttonSubmit"

@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -66,7 +67,7 @@ class DetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
+        sharedViewModel = ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
 
         val name = view.findViewById<View>(R.id.editTextName) as EditText
         val age = view.findViewById<View>(R.id.editTextAge) as EditText
@@ -78,11 +79,9 @@ class DetailsFragment : Fragment() {
             sharedViewModel!!.setAge(age.text.toString())
             sharedViewModel!!.setUserName(username.text.toString())
 
-            val displayFragment =DisplayFragment()
-            val fragmentTransaction = fragmentManager!!.beginTransaction()
-            fragmentTransaction.replace(R.id.fragmentsHolder,displayFragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
+            it.findNavController().navigate(R.id.action_detailsFragment_to_displayFragment)
+
+
 
         }
     }
